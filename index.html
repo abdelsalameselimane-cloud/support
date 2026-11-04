@@ -186,6 +186,10 @@ header p{color:var(--muted);font-size:16px;margin-top:4px}
   .pay{display:block}
   .qr{width:248px;height:248px;margin:0 auto 24px}
 }
+
+/* The layout never mirrors. Arabic text runs right-to-left inside its own lines only. */
+html[lang="ar"] [data-i18n],html[lang="ar"] [data-i18n-html]{direction:rtl;text-align:left}
+html[lang="ar"] .toast{direction:rtl}
 </style>
 </head>
 <body>
@@ -325,7 +329,7 @@ header p{color:var(--muted);font-size:16px;margin-top:4px}
 
   function apply(l){
     lang=l;var d=T[l],root=document.documentElement;
-    root.lang=l;root.dir=l==='ar'?'rtl':'ltr';
+    root.lang=l;
     document.title=d.pageTitle;
     document.querySelectorAll('[data-i18n]').forEach(function(el){el.textContent=d[el.dataset.i18n]});
     document.querySelectorAll('[data-i18n-html]').forEach(function(el){el.innerHTML=d[el.dataset.i18nHtml]});
