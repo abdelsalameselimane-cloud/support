@@ -51,9 +51,11 @@ header .titles{min-width:0}
   box-shadow:0 10px 30px rgba(255,46,91,.38);
 }
 .logo .ico{width:40px;height:40px}
-.lang{margin-inline-start:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--text);cursor:pointer}
-.lang .ico{width:18px;height:18px;color:var(--accent)}
-.lang select{appearance:none;-webkit-appearance:none;background:transparent;border:0;color:inherit;font:inherit;font-size:15px;font-weight:700;cursor:pointer;padding:0 2px;outline:none;max-width:110px}
+.lang{position:relative;display:inline-flex;align-items:center;height:44px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--text)}
+.lang .ico{position:absolute;top:50%;width:18px;height:18px;transform:translateY(-50%);pointer-events:none}
+.lang .globe{inset-inline-start:14px;color:var(--accent)}
+.lang .chev{inset-inline-end:12px;color:var(--muted);width:16px;height:16px}
+.lang select{appearance:none;-webkit-appearance:none;height:100%;border:0;border-radius:999px;background:transparent;color:inherit;font:inherit;font-size:15px;font-weight:700;cursor:pointer;padding-block:0;padding-inline:40px 34px;outline:none}
 .lang select option{background:#141720;color:#eef0f6}
 .lang:focus-within{outline:2px solid #fff;outline-offset:3px}
 header h1{font-size:28px;font-weight:800;line-height:1.25}
@@ -203,19 +205,21 @@ html[lang="ar"] .toast{direction:rtl}
   <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5l8 3v6c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10v-6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
   <symbol id="i-network" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M11 7.3L6.2 16.7M13 7.3l4.8 9.4M7.5 19h9"/></symbol>
   <symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M8 8h8M12 8v9"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
   <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.8 4 6 4 9.5s-1.4 6.7-4 9.5c-2.6-2.8-4-6-4-9.5s1.4-6.7 4-9.5z"/></symbol>
   <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
 </svg>
 
 <main class="wrap">
   <div class="topbar">
-    <label class="lang"><svg class="ico"><use href="#i-globe"/></svg>
+    <label class="lang"><svg class="ico globe"><use href="#i-globe"/></svg>
       <select id="lang" aria-label="Language">
         <option value="ar">العربية</option>
         <option value="en">English</option>
         <option value="fr">Français</option>
         <option value="es">Español</option>
-      </select></label>
+      </select>
+      <svg class="ico chev"><use href="#i-chev"/></svg></label>
   </div>
 
   <div class="layout">
